@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIND HCF and LCM</title>
+    <style>
+        table {
+            width: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 44px;
+            color: orangered;
+        }
+
+        div {
+            background-color: lightblue;
+            padding-top: 10px;
+            border-radius: 25px;
+            height: 600px;
+            margin: 20px;
+        }
+
+        hr {
+            background-color: red;
+            height: 4px;
+        }
+
+        input {
+            background: darksalmon;
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+            border: 2px solid darkgreen;
+            padding: 14px 10px;
+            width: 200px;
+            outline: none;
+            color: black;
+            border-radius: 25px;
+            transition: 0.25s;
+            cursor: text;
+        }
+
+        ::placeholder {
+            color: black;
+        }
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        button {
+            background: crimson;
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+            border: 2px solid #2ecc71;
+            padding: 14px 40px;
+            outline: none;
+            color: #9AECDB;
+            border-radius: 25px;
+            transition: 0.25s;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #2ecc71;
+            color: black;
+        }
+    </style>
+    <script>
+        function hcf() {
+            var n1 = document.getElementById("n1").value
+            var n2 = document.getElementById("n2").value
+            var temp = 0
+            if (n1 > n2) {
+                temp = n1;
+            }
+            else if (n1 < n2) {
+                temp = n2;
+            }
+            else {
+                temp = n1;
+            }
+            while (temp != 0) {
+                if (n1 % temp == 0 && n2 % temp == 0) {
+                    break;
+                }
+                temp--;
+            }
+
+            document.getElementById("hcf").innerHTML = temp
+        }
+
+        function lcm() {
+            var n1 = document.getElementById("n11").value
+            var n2 = document.getElementById("n12").value
+            if (n1 > n2) {
+                temp = n1;
+            }
+            else if (n1 < n2) {
+                temp = n2;
+            }
+            else {
+                temp = n1;
+            }
+            while (temp != n1 * n2) {
+                if (temp % n1 == 0 && temp % n2 == 0) {
+                    break;
+                }
+                temp++;
+            }
+
+            document.getElementById("lcm").innerHTML = temp
+        }
+    </script>
+</head>
+
+<body bgcolor="lightgreen">
+    <table>
+        <tr>
+            <td>
+                <div>
+                    <h1>HCF</h1>
+                    <hr>
+                    <input placeholder="Number 1" type="number" id="n1" autocomplete="off">
+                    <input placeholder="Number 2" type="number" id="n2" autocomplete="off">
+                    <button onclick="hcf()">FIND</button>
+                    <br><Br><Br><Br>
+                    <h2>Answer : <span id="hcf"></span></h2>
+                </div>
+            </td>
+            <td>
+                <div>
+                    <h1>LCM</h1>
+                    <hr>
+                    <input placeholder="Number 1" type="number" id="n11" autocomplete="off">
+                    <input placeholder="Number 2" type="number" id="n12" autocomplete="off">
+                    <button onclick="lcm()">FIND</button>
+                    <br><Br><Br><Br>
+                    <h2>Answer : <span id="lcm"></span></h2>
+                </div>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>
